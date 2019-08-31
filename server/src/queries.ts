@@ -43,18 +43,20 @@ const S3 = new AWS.S3({
 AWS.config.update({
   accessKeyId: "***REMOVED***",
   secretAccessKey: "***REMOVED***",
+  region: process.env.S3_REGION,
 })
 
 export const presignedUploadUrl = async (
   _: any,
   { albumId }: { albumId: string }
 ) => {
-  const filename = `${uuidv4()}`
+  const filename = `${albumId}/${uuidv4()}`
   const expireSeconds = 60 * 5
 
   const url = S3.getSignedUrl("putObject", {
     Bucket: process.env.S3_BUCKET,
     Key: filename,
+    ContentType: "image/*",
     Expires: expireSeconds,
   })
 
