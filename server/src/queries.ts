@@ -63,8 +63,8 @@ const S3 = new AWS.S3({
 // in production you would use AWS SecretsManager for these
 // here we create a example user with full S3 access
 AWS.config.update({
-  accessKeyId: "***REMOVED***",
-  secretAccessKey: "***REMOVED***",
+  accessKeyId: "AKIAVGA6PM7ANUHVNA7V",
+  secretAccessKey: "MDgdauT5LppdKvzk//+eJ0uFgdJ7MKCCb00Nd56d",
   region: process.env.S3_REGION,
 })
 
